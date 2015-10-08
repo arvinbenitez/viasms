@@ -3,6 +3,7 @@ package com.aquakesh.jaspr;
 import java.lang.reflect.Method;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,13 +23,12 @@ public class BaseActivity extends Activity  {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Log.d(TAG, "onMenuItemSelected");
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		switch (id){
+		case R.id.itemSettings:
+			startActivity(new Intent(this, SettingsActivity.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+			break;
 		default:
-			//TODO handle the clicks here
 				break;
 		}
 		return true;
