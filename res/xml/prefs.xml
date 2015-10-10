@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     <EditTextPreference android:title="@string/prefTitleUsername" android:key="userName"/>
     <EditTextPreference android:key="password" android:title="@string/prefTitlePassword" android:inputType="textPassword"/>
-    <ListPreference android:title="@string/prefTitleKeywords" android:summary="@string/prefSummaryKeyword" android:key="keywords"/>
+    <EditTextPreference android:key="serviceUrl" android:summary="@string/prefSummaryServiceUrl" android:title="@string/prefTitleServiceUrl"/>
     
 
 </PreferenceScreen>

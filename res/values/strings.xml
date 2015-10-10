@@ -9,5 +9,7 @@
     <string name="prefTitlePassword">Password</string>
     <string name="prefTitleKeywords">Keywords</string>
     <string name="prefSummaryKeyword">List of words and abbreviations to watch for</string>
+    <string name="prefTitleServiceUrl">API Url</string>
+    <string name="prefSummaryServiceUrl">The url of the API</string>
 
 </resources>
