@@ -4,12 +4,14 @@
     <string name="app_name">Jaspr</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="menuSettings">Settings</string>
+    <string name="keywordTitle">Keywords</string>
+    <string name="menuSettings">API Settings</string>
     <string name="prefTitleUsername">User Name</string>
     <string name="prefTitlePassword">Password</string>
     <string name="prefTitleKeywords">Keywords</string>
     <string name="prefSummaryKeyword">List of words and abbreviations to watch for</string>
     <string name="prefTitleServiceUrl">API Url</string>
     <string name="prefSummaryServiceUrl">The url of the API</string>
+    <string name="menuKeywords">Keywords</string>
 
 </resources>
