@@ -25,13 +25,16 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int buttonAddKeyword=0x7f090004;
-        public static final int itemKeyword=0x7f090006;
-        public static final int itemSettings=0x7f090005;
+        public static final int buttonAddKeyword=0x7f090007;
+        public static final int deleteKeywordsButton=0x7f090004;
+        public static final int deleteKeywordsLayout=0x7f090002;
+        public static final int deleteKeywordsText=0x7f090003;
+        public static final int itemKeyword=0x7f090009;
+        public static final int itemSettings=0x7f090008;
         public static final int keywordCheck=0x7f090000;
         public static final int keywordText=0x7f090001;
-        public static final int listKeywords=0x7f090002;
-        public static final int textAddKeyword=0x7f090003;
+        public static final int listKeywords=0x7f090005;
+        public static final int textAddKeyword=0x7f090006;
     }
     public static final class layout {
         public static final int keywordrow=0x7f030000;

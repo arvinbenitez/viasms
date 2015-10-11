@@ -13,6 +13,27 @@
         android:text="@string/keywordTitle"
         android:textSize="20sp" />
 
+    <LinearLayout
+        android:id="@+id/deleteKeywordsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/deleteKeywordsText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+        <ImageButton
+            android:id="@+id/deleteKeywordsButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@android:drawable/ic_menu_delete"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/listKeywords"
         android:layout_width="match_parent"

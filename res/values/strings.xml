@@ -13,5 +13,4 @@
     <string name="prefTitleServiceUrl">API Url</string>
     <string name="prefSummaryServiceUrl">The url of the API</string>
     <string name="menuKeywords">Keywords</string>
-
 </resources>

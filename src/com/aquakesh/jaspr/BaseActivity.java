@@ -12,6 +12,8 @@ import android.view.Window;
 public class BaseActivity extends Activity {
 
 	private static final String TAG = BaseActivity.class.getSimpleName();
+	public static final String ApplicationPreferences = "JasperPreferences" ;
+	public static final String KeywordPreferences = "KeywordPreferences" ;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
