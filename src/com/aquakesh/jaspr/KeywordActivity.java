@@ -6,7 +6,6 @@ import java.util.List;
 import com.aquakesh.jaspr.model.Keyword;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,9 +49,8 @@ public class KeywordActivity extends BaseActivity implements OnClickListener, On
 		super.onResume();
 		Log.d(TAG, "onResume");
 
-		keywords = new ArrayList<Keyword>();
-		getKeyWords(keywords);
-
+		keywords = getKeyWords();
+		
 		adapter = new KeywordArrayAdapter(this, R.layout.keywordrow, R.id.keywordText, keywords);
 		listKeyword.setAdapter(adapter);
 	}
@@ -70,34 +68,10 @@ public class KeywordActivity extends BaseActivity implements OnClickListener, On
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View view = super.getView(position, convertView, parent);
 			CheckBox checkbox = (CheckBox) view.findViewById(R.id.keywordCheck);
+			checkbox.setChecked(keywords.get(position).selected);
 			checkbox.setOnCheckedChangeListener((OnCheckedChangeListener) context);
 			return view;
 		}
-	}
-
-	private static final String DefaultKeywords = "deliver,dlvr,slim,round";
-
-	private void getKeyWords(ArrayList<Keyword> keywords) {
-		Log.d(TAG, "getKeyWords");
-		SharedPreferences prefs = this.getSharedPreferences(ApplicationPreferences, Context.MODE_PRIVATE);
-		String keywordPreferences = prefs.getString(KeywordPreferences, DefaultKeywords);
-
-		String[] keywordArray = keywordPreferences.split("\\,");
-		for (String string : keywordArray) {
-			keywords.add(new Keyword(string));
-		}
-	}
-
-	private void saveKeywords() {
-		SharedPreferences prefs = this.getSharedPreferences(ApplicationPreferences, Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = prefs.edit();
-		String values = "";
-		for (Keyword k : keywords) {
-			values = values + (values.length() > 0 ? "," : "") + k.keyword;
-		}
-		Log.d(TAG, "Adding values to the shared preferences: " + values);
-		editor.putString(KeywordPreferences, values);
-		editor.commit();
 	}
 
 	@Override
@@ -117,6 +91,7 @@ public class KeywordActivity extends BaseActivity implements OnClickListener, On
 					keywords.remove(i);
 				}
 			}
+			saveKeywords(keywords);			
 			updateDeletionView();
 			adapter.notifyDataSetChanged();
 			break;
@@ -127,8 +102,8 @@ public class KeywordActivity extends BaseActivity implements OnClickListener, On
 		if (FindKeyword(word) == null) {
 			Keyword keyword = new Keyword(word);
 			keywords.add(keyword);
+			saveKeywords(keywords);
 			adapter.notifyDataSetChanged();
-			saveKeywords();
 			return true;
 		}
 		return false;

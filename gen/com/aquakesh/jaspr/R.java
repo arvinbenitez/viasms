@@ -29,11 +29,12 @@ public final class R {
         public static final int deleteKeywordsButton=0x7f090004;
         public static final int deleteKeywordsLayout=0x7f090002;
         public static final int deleteKeywordsText=0x7f090003;
-        public static final int itemKeyword=0x7f090009;
-        public static final int itemSettings=0x7f090008;
+        public static final int itemKeyword=0x7f09000a;
+        public static final int itemSettings=0x7f090009;
         public static final int keywordCheck=0x7f090000;
         public static final int keywordText=0x7f090001;
         public static final int listKeywords=0x7f090005;
+        public static final int mainTextView=0x7f090008;
         public static final int textAddKeyword=0x7f090006;
     }
     public static final class layout {
