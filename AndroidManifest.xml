@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".SettingsActivity"></activity>
         <activity android:name=".KeywordActivity"></activity>
+		<service android:name="com.aquakesh.jaspr.services.MessageService"></service>
         <receiver android:name="com.aquakesh.jaspr.broadcastreceivers.MessageReceiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>

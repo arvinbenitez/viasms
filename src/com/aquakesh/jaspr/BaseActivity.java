@@ -4,11 +4,12 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import com.aquakesh.jaspr.model.Keyword;
+import com.aquakesh.jaspr.model.KeywordPreferencesHelper;
+import com.aquakesh.jaspr.services.MessageService;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,14 +18,19 @@ import android.view.Window;
 public class BaseActivity extends Activity {
 
 	private static final String TAG = BaseActivity.class.getSimpleName();
-	public static final String ApplicationPreferences = "JasperPreferences" ;
-	public static final String KeywordPreferences = "KeywordPreferences" ;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		Log.d(TAG, "onCreateOptinsMenu");
+		Log.d(TAG, "onCreateOptionsMenu");
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.d(TAG, "onCreate starting service");
+		this.startService(new Intent(this, MessageService.class));
 	}
 
 	@Override
@@ -64,30 +70,11 @@ public class BaseActivity extends Activity {
 		return super.onMenuOpened(featureId, menu);
 	}
 	
-	private static final String DefaultKeywords = "deliver,dlvr,slim,round";
 	protected ArrayList<Keyword> getKeyWords() {
-		ArrayList<Keyword> keywords = new ArrayList<Keyword>();
-		
-		Log.d(TAG, "getKeyWords");
-		SharedPreferences prefs = this.getSharedPreferences(ApplicationPreferences, Context.MODE_PRIVATE);
-		String keywordPreferences = prefs.getString(KeywordPreferences, DefaultKeywords);
-
-		String[] keywordArray = keywordPreferences.split("\\,");
-		for (String string : keywordArray) {
-			keywords.add(new Keyword(string));
-		}
-		return keywords;
+		return KeywordPreferencesHelper.getKeyWords(this);
 	}
 	
 	protected void saveKeywords(ArrayList<Keyword> keywords) {
-		SharedPreferences prefs = this.getSharedPreferences(ApplicationPreferences, Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = prefs.edit();
-		String values = "";
-		for (Keyword k : keywords) {
-			values = values + (values.length() > 0 ? "," : "") + k.keyword;
-		}
-		Log.d(TAG, "Adding values to the shared preferences: " + values);
-		editor.putString(KeywordPreferences, values);
-		editor.commit();
+		KeywordPreferencesHelper.saveKeywords(this, keywords);
 	}
 }

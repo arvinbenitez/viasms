@@ -1,6 +1,5 @@
 package com.aquakesh.jaspr.broadcastreceivers;
 
-import com.aquakesh.jaspr.BaseActivity;
 import com.aquakesh.jaspr.model.Message;
 
 import android.content.BroadcastReceiver;
@@ -17,10 +16,10 @@ import android.util.Log;
 
 public class MessageReceiver extends BroadcastReceiver {
 
-	private static final String TAG = BaseActivity.class.getSimpleName();
+	private static final String TAG = "MessageReceiver";
 	public static final String NEW_MESSAGE_INTENT = "com.aquakesh.jaspr.NEW_MESSAGE";
-	private static final String NEW_MESSAGE_EXTRA_MESSAGE = "com.aquakesh.jaspr.NEW_MESSAGE_EXTRA_MESSAGE";
-	private static final String NEW_MESSAGE_RECEIVER_PERMISSION = "com.aquakesh.jaspr.NEW_MESSAGE_RECEIVER_PERMISSION"; 
+	public static final String NEW_MESSAGE_EXTRA_MESSAGE = "com.aquakesh.jaspr.NEW_MESSAGE_EXTRA_MESSAGE";
+	//private static final String NEW_MESSAGE_RECEIVER_PERMISSION = "com.aquakesh.jaspr.NEW_MESSAGE_RECEIVER_PERMISSION"; 
 	
 	final SmsManager sms = SmsManager.getDefault();
 	
@@ -57,7 +56,7 @@ public class MessageReceiver extends BroadcastReceiver {
 		Log.d(TAG, "broadcast message retrieved");
 		Intent broadcastIntent = new Intent(MessageReceiver.NEW_MESSAGE_INTENT);
 		broadcastIntent.putExtra(MessageReceiver.NEW_MESSAGE_EXTRA_MESSAGE, jasprMessage);
-		context.sendBroadcast(broadcastIntent, MessageReceiver.NEW_MESSAGE_RECEIVER_PERMISSION);
+		context.sendBroadcast(broadcastIntent); //, MessageReceiver.NEW_MESSAGE_RECEIVER_PERMISSION);
 		Log.d(TAG, "broadcast sent");
 	}
 	
