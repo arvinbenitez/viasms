@@ -50,8 +50,9 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060001;
         public static final int keywordTitle=0x7f060003;
-        public static final int menuKeywords=0x7f06000b;
+        public static final int menuKeywords=0x7f06000c;
         public static final int menuSettings=0x7f060004;
+        public static final int prefPhoneNumber=0x7f06000b;
         public static final int prefSummaryKeyword=0x7f060008;
         public static final int prefSummaryServiceUrl=0x7f06000a;
         public static final int prefTitleKeywords=0x7f060007;

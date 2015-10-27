@@ -3,4 +3,5 @@
     <EditTextPreference android:title="@string/prefTitleUsername" android:key="userName"/>
     <EditTextPreference android:key="password" android:title="@string/prefTitlePassword" android:inputType="textPassword"/>
     <EditTextPreference android:key="serviceUrl" android:title="@string/prefTitleServiceUrl"/>
+    <EditTextPreference android:key="phoneNumber" android:title="@string/prefPhoneNumber"/>
 </PreferenceScreen>

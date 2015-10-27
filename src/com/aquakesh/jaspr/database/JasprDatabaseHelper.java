@@ -23,7 +23,7 @@ public class JasprDatabaseHelper extends SQLiteOpenHelper {
 			StringBuilder sql = new StringBuilder();
 			sql.append("create table " + MessageTable.TABLE_NAME);
 			sql.append("(");
-			sql.append(MessageTable.COLUMN_ID + " int primary key,");
+			sql.append(MessageTable.COLUMN_ID + " integer primary key,");
 			sql.append(MessageTable.COLUMN_SOURCE_PHONE_NUMBER + " text,");
 			sql.append(MessageTable.COLUMN_RECEIVING_PHONE_NUMBER + " text,");
 			sql.append(MessageTable.COLUMN_CONTACT_NAME + " text,");

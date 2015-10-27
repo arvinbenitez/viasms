@@ -14,4 +14,6 @@ public class MessageTable {
 	public static final int STATUS_UPLOADED = 1;
 	public static final int STATUS_ORDERGENERATED = 2;
 	public static final int STATUS_DELIVERED = 3;
+	
+	
 }
